@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_KERNEL_CONFIG := aosp_yukon_flamingo_defconfig
-
+TARGET_KERNEL_CONFIG := arima_8926ss_ap_defconfig
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/flamingo/device.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)

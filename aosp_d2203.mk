@@ -19,8 +19,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Product attributes
-PRODUCT_NAME := aosp_d2203
+PRODUCT_NAME := pureNexus_d2203
 PRODUCT_DEVICE := flamingo
-PRODUCT_MODEL := Xperia E3 (AOSP)
+PRODUCT_MODEL := Xperia E3
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony

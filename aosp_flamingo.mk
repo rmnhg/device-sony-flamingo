@@ -19,8 +19,12 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Product attributes
-PRODUCT_NAME := aosp_d2203
+PRODUCT_NAME := aosp_flamingo
 PRODUCT_DEVICE := flamingo
-PRODUCT_MODEL := Xperia E3 (AOSP)
-PRODUCT_BRAND := Sony
+PRODUCT_BRAND := Android
+PRODUCT_MODEL := AOSP on flamingo
 PRODUCT_MANUFACTURER := Sony
+PRODUCT_RESTRICT_VENDOR_FILES := true
+
+$(call inherit-product, device/sony/flamingo/device.mk)
+$(call inherit-product-if-exists, vendor/sony/yukon-flamingo/flamingo-vendor.mk)

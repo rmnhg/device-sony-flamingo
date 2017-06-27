@@ -27,4 +27,4 @@ PRODUCT_MANUFACTURER := Sony
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
 $(call inherit-product, device/sony/flamingo/device.mk)
-$(call inherit-product-if-exists, vendor/sony/yukon-flamingo/flamingo-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/flamingo/yukon-flamingo/flamingo-vendor.mk)

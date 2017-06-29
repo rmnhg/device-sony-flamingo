@@ -19,8 +19,12 @@ import init.yukon.pwr.rc
 on init
     symlink /dev/block/platform/msm_sdcc.1 /dev/block/bootdevice
 
+# Symbols required for camera blobs
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
+
 on fs
     mount_all ./fstab.flamingo
+    swapon_all /fstab.flamingo
     write /sys/kernel/boot_adsp/boot 1
 
 on post-fs-data
@@ -29,9 +33,10 @@ on post-fs-data
 
 on boot
     # Enable writing to led blink node from userspace
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
-
+    chown system system /sys/class/leds/led:rgb_red/blink
+    chown system system /sys/class/leds/led:rgb_green/blink
+    chown system system /sys/class/leds/led:rgb_blue/blink
+    
     # Enable writing to brightness node under torch-light from userspace
     chown system system /sys/class/leds/torch-light/brightness
 

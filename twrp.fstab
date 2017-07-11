@@ -1,11 +1,14 @@
-# mount point fstype device [device2] fstype2
-
-/boot         emmc    /dev/block/platform/msm_sdcc.1/by-name/boot       flags=display="Boot"
-/recovery     emmc    /dev/block/platform/msm_sdcc.1/by-name/FOTAKernel flags=display="Recovery";backup=1
-/system       ext4    /dev/block/platform/msm_sdcc.1/by-name/system     flags=display="System";usermrf
-/cache        ext4    /dev/block/platform/msm_sdcc.1/by-name/cache      flags=display="Cache";backup=0;usermrf
+ # mount point fstype device [device2] fstype2
+ 
+/boot         emmc    /dev/block/platform/msm_sdcc.1/by-name/boot
+/recovery     emmc    /dev/block/platform/msm_sdcc.1/by-name/FOTAKernel
+/system       ext4    /dev/block/platform/msm_sdcc.1/by-name/system
+/cache        ext4    /dev/block/platform/msm_sdcc.1/by-name/cache
 /ta		      emmc	  /dev/block/platform/msm_sdcc.1/by-name/TA	        flags=backup=1;canbewiped;display="Trim Area"
 /data         ext4    /dev/block/platform/msm_sdcc.1/by-name/userdata
+/misc         emmc    /dev/block/platform/msm_sdcc.1/by-name/apps_log
+/lta-label    ext4    /dev/block/platform/msm_sdcc.1/by-name/LTALabel
+
 /external_sd  vfat    /dev/block/mmcblk1p1   /dev/block/mmcblk1         flags=display="Micro SDcard";storage;wipeingui;removable
 /usb-otg      auto    /dev/block/sda1        /dev/block/sda             flags=display="USB OTG";storage;wipeingui;removable
 /sd-ext       auto    /dev/block/mmcblk1p2                              flags=display="SD-Ext";wipeingui;removable

@@ -22,6 +22,8 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+	device/sony/flamingo/rootdir/system/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+	device/sony/flamingo/rootdir/system/lib/modules/radio-iris-transport.ko:system/lib/modules/radio-iris-transport.ko \
 	device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # IDC

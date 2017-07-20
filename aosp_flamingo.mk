@@ -28,7 +28,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 PRODUCT_NAME := aosp_flamingo
 PRODUCT_DEVICE := flamingo
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on flamingo
 PRODUCT_MANUFACTURER := Sony
 
 $(call inherit-product, device/sony/flamingo/device.mk)

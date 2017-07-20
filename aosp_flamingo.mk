@@ -1,4 +1,4 @@
-# Copyright 2014 The Android Open Source Project
+# Copyright 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 TARGET_SCREEN_HEIGHT	:= 854
 TARGET_SCREEN_WIDTH	:= 480
 
-#Kernel config
+# Kernel config
 TARGET_KERNEL_CONFIG := arima_8926ss_ap_defconfig
 
 # Inherit from those products. Most specific first.

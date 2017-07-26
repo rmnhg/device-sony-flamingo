@@ -13,8 +13,8 @@
 # limitations under the License.
 
 # Boot animation
-TARGET_SCREEN_HEIGHT	:= 854
-TARGET_SCREEN_WIDTH	:= 480
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 # Kernel config
 TARGET_KERNEL_CONFIG := arima_8926ss_ap_defconfig
@@ -27,7 +27,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Product attributes
 PRODUCT_NAME := aosp_flamingo
 PRODUCT_DEVICE := flamingo
-PRODUCT_MODEL		:= Xperia E3
+PRODUCT_MODEL := Xperia E3
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
 

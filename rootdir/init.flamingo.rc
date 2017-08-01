@@ -19,13 +19,18 @@ import init.yukon.pwr.rc
 on init
     symlink /dev/block/platform/msm_sdcc.1 /dev/block/bootdevice
 
-# Symbols required for camera blobs
-    export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
-
 on fs
     mount_all ./fstab.flamingo
     swapon_all /fstab.flamingo
     write /sys/kernel/boot_adsp/boot 1
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/persist
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid barrier=1
+    restorecon_recursive /persist
+
+on boot
+    # WiFi MAC
+    chown system system /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_mac_addr
 
 on post-fs-data
     # Symlink for compability
@@ -41,16 +46,12 @@ on boot
 	chown system system /sys/class/leds/led:flash_torch/brightness
 	chown system system /sys/class/leds/led:flash_0/brightness
 
-# Init FM script
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
-    class late_start
-    user root
-    group system fm_radio
+
+# WiFi MAC
+service wifimactool /system/bin/sh /system/etc/wifimactool.sh
+    class main    
     disabled
     oneshot
-
-    # WCNSS enable
-    write /dev/wcnss_wlan 1
 
 # WCNSS service
 service wcnss_service /system/vendor/bin/wcnss_service
@@ -101,6 +102,11 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     group bluetooth system
     disabled
     oneshot
+
+on property:vold.post_fs_data_done=1
+    # Read WiFi MAC address only when /data is ready
+    start wifimactool
+
 
 on property:bluetooth.hciattach=true
     start hciattach

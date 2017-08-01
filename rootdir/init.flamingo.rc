@@ -21,7 +21,16 @@ on init
 
 on fs
     mount_all ./fstab.flamingo
+    swapon_all /fstab.flamingo
     write /sys/kernel/boot_adsp/boot 1
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/persist
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid barrier=1
+    restorecon_recursive /persist
+
+on boot
+    # WiFi MAC
+    chown system system /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_mac_addr
 
 on post-fs-data
     # Symlink for compability
@@ -29,14 +38,20 @@ on post-fs-data
 
 on boot
     # Enable writing to led blink node from userspace
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
-
+    chown system system /sys/class/leds/led:rgb_red/blink
+    chown system system /sys/class/leds/led:rgb_green/blink
+    chown system system /sys/class/leds/led:rgb_blue/blink
+    
     # Enable writing to brightness node under torch-light from userspace
-    chown system system /sys/class/leds/torch-light/brightness
+	chown system system /sys/class/leds/led:flash_torch/brightness
+	chown system system /sys/class/leds/led:flash_0/brightness
 
-    # WCNSS enable
-    write /dev/wcnss_wlan 1
+
+# WiFi MAC
+service wifimactool /system/bin/sh /system/etc/wifimactool.sh
+    class main    
+    disabled
+    oneshot
 
 # WCNSS service
 service wcnss_service /system/vendor/bin/wcnss_service
@@ -87,6 +102,11 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     group bluetooth system
     disabled
     oneshot
+
+on property:vold.post_fs_data_done=1
+    # Read WiFi MAC address only when /data is ready
+    start wifimactool
+
 
 on property:bluetooth.hciattach=true
     start hciattach

@@ -14,7 +14,7 @@
 
 include device/sony/yukon/PlatformConfig.mk
 
-TARGET_RECOVERY_FSTAB = device/sony/flamingo/rootdir/fstab.flamingo
+TARGET_RECOVERY_FSTAB = device/sony/flamingo/rootdir/recovery.fstab
 
 TARGET_BOOTLOADER_BOARD_NAME := D2203
 

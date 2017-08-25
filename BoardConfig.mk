@@ -32,8 +32,7 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
 # TW_THEM := portrait_hdpi
 # RECOVERY_SDCARD_ON_DATA := true
 
-#oreo
-
+# OREO
 # Inline kernel building
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-androidkernel-

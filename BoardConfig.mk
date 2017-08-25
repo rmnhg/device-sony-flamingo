@@ -31,3 +31,12 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
 # TARGET_USERIMAGES_USE_F2FS := true
 # TW_THEM := portrait_hdpi
 # RECOVERY_SDCARD_ON_DATA := true
+
+#oreo
+
+# Inline kernel building
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androidkernel-
+TARGET_KERNEL_SOURCE := kernel/sony/msm8226
+TARGET_KERNEL_CONFIG := arima_8926ss_ap_defconfig
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb

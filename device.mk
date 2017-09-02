@@ -53,7 +53,7 @@ PRODUCT_PACKAGES += \
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
-     Screencast
+     Recorder
 
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi

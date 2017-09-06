@@ -19,8 +19,10 @@ import init.yukon.pwr.rc
 on init
     symlink /dev/block/platform/msm_sdcc.1 /dev/block/bootdevice
 
-# Symbols required for camera blobs
-export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/lib/libcamera_client.so|libshim_camera.so
+    # Symbols required for camera blobs
+    export LD_PRELOAD /system/lib/libatomic_camera.so
+
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/lib/libcamera_client.so|libshim_camera.so
 
 on fs
     mount_all ./fstab.flamingo
@@ -53,17 +55,16 @@ on boot
 # WiFi MAC
 service wifimactool /system/bin/sh /system/etc/wifimactool.sh
     class main    
-    disabled
     oneshot
 
 # WCNSS service
-service wcnss_service /system/vendor/bin/wcnss_service
+service wcnss_service /system/bin/wcnss_service
     class late_start
     user system
     group system wifi
     oneshot
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \

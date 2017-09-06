@@ -22,7 +22,15 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
+	device/sony/flamingo/rootdir/system/etc/wifimactool.sh:system/etc/wifimactool.sh
+#   device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    device/sony/flamingo/rootdir/system/etc/_hals.conf:system/vendor/etc/sensors/_hals.conf
+
+ PRODUCT_PACKAGES += \
+    sensors.msm8226
 
 # IDC
 PRODUCT_COPY_FILES += \
@@ -53,7 +61,13 @@ PRODUCT_PACKAGES += \
 
 # Camera shim packages
 PRODUCT_PACKAGES += \
-    libshim_camera
+    libshim_camera \
+    libatomic_camera
+
+# Debug
+PRODUCT_PACKAGES += \
+    dmesgdump \
+    logdump
 
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi

@@ -20,4 +20,4 @@ Camera  | 5MPx, LED Flash
 
 ![Sony Xperia E3](http://img.xda-cdn.com/at7vyyB04Ls_WDBkOUoT3GWHbJI=/300x300/smart/forum.xda-developers.com/devdb/deviceForum/screenshots/3572/20140907T050850.jpg "Sony Xperia E3 in black")
 
-This branch is for building LineageOS 14.1 (or Android Nougat 7.1 AOSP based) ROMS.
+This branch is for building LineageOS 15.0 (or Android Oreo 8.0 AOSP based) ROMS.

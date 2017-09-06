@@ -5,7 +5,7 @@ The Sony Xperia E3 (codenamed _"flamingo"_) is a mid-range smartphone from Sony 
 
 It was announced on September 2014.
 
-Flamingo was supported in CyanogenMod 11, 12, 12.1 and now by LineageOS 14.1
+Flamingo was supported in CyanogenMod 11, 12, 12.1, 14.1 and now by LineageOS 15.0
 
 Basic   | Spec Sheet
 -------:|:-------------------------

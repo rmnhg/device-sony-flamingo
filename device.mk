@@ -55,6 +55,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
      Recorder
 
+# Camera
+ PRODUCT_PACKAGES += \
+    libshim_camera \
+    camera.msm8226
+
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi

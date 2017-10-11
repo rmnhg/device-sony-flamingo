@@ -58,6 +58,7 @@ PRODUCT_PACKAGES += \
 # Camera
  PRODUCT_PACKAGES += \
     libshim_camera \
+    libboringssl-compat \
     camera.msm8226
 
 PRODUCT_AAPT_CONFIG := large

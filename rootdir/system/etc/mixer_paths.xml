@@ -196,6 +196,9 @@
     <ctl name="IIR1 Enable Band3" value="0" />
     <ctl name="IIR1 Enable Band4" value="0" />
     <ctl name="IIR1 Enable Band5" value="0" />
+<!-- [All][Main][Voice][DMS][36320][LuboLu] Fix sidetone issue for handset and headset. 20140415 begin -->
+    <ctl name="IIR1 INP1 Volume" value="62" />
+<!-- [All][Main][Voice][DMS][36320][LuboLu] 20140415 end -->
     <!-- IIR/voice anc end -->
     <!-- aanc handset mic -->
     <ctl name="AIF1_CAP Mixer SLIM TX3" value="0" />

@@ -17,6 +17,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=D2203
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=Sony/D2203/D2203:4.4.4/18.5.C.0.19/7H9_bQ:user/release-keys
 PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="D2203-user 4.4.4 18.5.C.0.19 7H9_bQ release-keys"
 
+# Google Play Store identifier
+PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
+
 # Override Product Name for LineageOS
 PRODUCT_NAME		:= lineage_flamingo
 PRODUCT_DEVICE		:= flamingo

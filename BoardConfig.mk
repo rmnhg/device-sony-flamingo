@@ -1,4 +1,4 @@
-# Copyright 2014 The Android Open Source Project
+# Copyright 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,3 +31,13 @@ RECOVERY_VARIANT := twrp
 TARGET_USERIMAGES_USE_F2FS := true
 TW_THEM := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
+
+#MultiROM config. MultiROM also uses parts of TWRP config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/sony/flamingo/multirom/mr_init_devices.c
+MR_RD_ADDR := 0x02000000
+MR_DPI := hdpi
+MR_DPI_FONT := 320
+MR_FSTAB := device/sony/flamingo/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x3EB
+MR_INFOS := device/sony/flamingo/multirom/mrom_infos

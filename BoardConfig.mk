@@ -13,6 +13,7 @@
 # limitations under the License.
 
 include device/sony/yukon/PlatformConfig.mk
+include system/extras/multirom/Android.mk
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/flamingo/include
 
@@ -29,7 +30,7 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
 #twrp
 RECOVERY_VARIANT := twrp
 TARGET_USERIMAGES_USE_F2FS := true
-TW_THEM := portrait_hdpi
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 
 #MultiROM config. MultiROM also uses parts of TWRP config

@@ -11,7 +11,7 @@ variant=`ls /lta-label/*.html | sed s/.*-elabel-// | sed s/-row.html// | tr -d '
 umount /lta-label
 
 # Symlink the correct modem blobs
-if [ $variant == "d2202" ] || [ $deviceid == "d2212" ]; then
+if [ $variant == "d2202" ] || [ $variant == "d2212" ]; then
 basedir="/system/blobs/d2202/"
 cd $basedir
 find . -type f | while read file; do ln -s $basedir$file /system/etc/firmware/$file ; done

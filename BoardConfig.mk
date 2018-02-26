@@ -1,4 +1,4 @@
-# Copyright 2014 The Android Open Source Project
+# Copyright 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1879014400
 BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
 
 #twrp
-#RECOVERY_VARIANT := twrp
-#TARGET_USERIMAGES_USE_F2FS := true
-#TW_THEM := portrait_hdpi
-#RECOVERY_SDCARD_ON_DATA := true
+TARGET_USERIMAGES_USE_F2FS := true
+TW_THEM := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true

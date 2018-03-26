@@ -51,10 +51,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.flamingo
 
-# Screen Recorder
-PRODUCT_PACKAGES += \
-     Recorder
-
 # Camera
  PRODUCT_PACKAGES += \
     libshim_camera \

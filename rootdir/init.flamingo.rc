@@ -22,35 +22,71 @@ on init
      # Symbols required for camera blobs
 export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/lib/libcamera_client.so|libshim_camera.so
 
+    # SONY: Start the TrimArea Daemon
+    class_start sony_ta
+    exec /sbin/wait4tad_static
+
 on fs
     mount_all ./fstab.flamingo
     swapon_all /fstab.flamingo
     write /sys/kernel/boot_adsp/boot 1
 
-on boot
-    # WiFi MAC
-    chown system system /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_mac_addr
+# SONY: Start early TA-users
+    exec /system/bin/taimport
 
 on post-fs-data
     # Symlink for compability
     symlink /dev/pn54x /dev/pn547
 
-on boot
     # Enable writing to led blink node from userspace
     chown system system /sys/class/leds/led:rgb_red/blink
     chown system system /sys/class/leds/led:rgb_green/blink
     chown system system /sys/class/leds/led:rgb_blue/blink
-    
+    chown system system /sys/class/leds/led:rgb_red/blink
+    chown system system /sys/class/leds/led:rgb_red/pause_hi
+    chown system system /sys/class/leds/led:rgb_red/pause_lo
+    chown system system /sys/class/leds/led:rgb_green/blink
+    chown system system /sys/class/leds/led:rgb_green/pause_hi
+    chown system system /sys/class/leds/led:rgb_green/pause_lo
+    chown system system /sys/class/leds/led:rgb_blue/blink
+    chown system system /sys/class/leds/led:rgb_blue/pause_hi
+    chown system system /sys/class/leds/led:rgb_blue/pause_lo
+
     # Enable writing to brightness node under torch-light from userspace
-	chown system system /sys/class/leds/led:flash_torch/brightness
-	chown system system /sys/class/leds/led:flash_0/brightness
+    chown system system /sys/class/leds/led:flash_torch/brightness
+    chown system system /sys/class/leds/led:flash_0/brightness
 
+    # Flash LED
+    chown system camera /sys/class/leds/torch-light/brightness
+    chmod 0660 /sys/class/leds/torch-light/brightness
 
-# WiFi MAC
-service wifimactool /system/bin/sh /system/etc/wifimactool.sh
-    class main    
-    disabled
+    # WiFi MAC
+    chown system system /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_mac_addr
+
+on early-boot
+    start ta_qmi_service
+    start sct_service
+
+on boot
+    exec /system/bin/taimport property
+
+# SONY: TrimArea Daemon
+# Last 2 args: start block(blk size 128k), number of blocks(partitionsize(kb)/128(kb))
+service tad_static /sbin/tad_static /dev/block/mmcblk0 1,16
+    user root
+    group root
+    socket tad stream 0660 system sony_ta
+    class sony_ta
+
+service updatemiscta /system/bin/updatemiscta
+    class main
+    user root
     oneshot
+
+# Trim Area QMI service
+service ta_qmi_service /system/bin/ta_qmi_service
+    user root
+    disabled
 
 # WCNSS service
 service wcnss_service /system/vendor/bin/wcnss_service
@@ -101,11 +137,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     group bluetooth system
     disabled
     oneshot
-
-on property:vold.post_fs_data_done=1
-    # Read WiFi MAC address only when /data is ready
-    start wifimactool
-
 
 on property:bluetooth.hciattach=true
     start hciattach

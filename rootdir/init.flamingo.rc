@@ -40,9 +40,6 @@ on post-fs-data
 
     # Enable writing to led blink node from userspace
     chown system system /sys/class/leds/led:rgb_red/blink
-    chown system system /sys/class/leds/led:rgb_green/blink
-    chown system system /sys/class/leds/led:rgb_blue/blink
-    chown system system /sys/class/leds/led:rgb_red/blink
     chown system system /sys/class/leds/led:rgb_red/pause_hi
     chown system system /sys/class/leds/led:rgb_red/pause_lo
     chown system system /sys/class/leds/led:rgb_green/blink

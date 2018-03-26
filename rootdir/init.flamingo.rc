@@ -85,6 +85,12 @@ service ta_qmi_service /system/bin/ta_qmi_service
     user root
     disabled
 
+# QCOM sensors
+service sensors /system/bin/sensors.qcom
+    class main
+    user root
+    group root
+
 # WCNSS service
 service wcnss_service /system/vendor/bin/wcnss_service
     class late_start

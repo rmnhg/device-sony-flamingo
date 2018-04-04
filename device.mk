@@ -1,4 +1,4 @@
-# Copyright 2014 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,29 +17,29 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Device etc
 PRODUCT_COPY_FILES := \
-    device/sony/flamingo/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/sony/flamingo/rootdir/system/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
-    device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
-    device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-	device/sony/flamingo/rootdir/system/etc/wifimactool.sh:system/etc/wifimactool.sh
-#   device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/sony/flamingo/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    device/sony/flamingo/rootdir/system/etc/thermal-engine-8226.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8226.conf \
+    device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf \
+    device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
+    device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
+    device/sony/flamingo/rootdir/system/etc/wifimactool.sh:$(TARGET_COPY_OUT_VENDOR)/etc/wifimactool.sh \
+    device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    device/sony/flamingo/rootdir/system/etc/_hals.conf:system/vendor/etc/sensors/_hals.conf
+    device/sony/flamingo/rootdir/system/etc/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/vendor/etc/sensors/_hals.conf
 
  PRODUCT_PACKAGES += \
     sensors.msm8226
 
 # IDC
 PRODUCT_COPY_FILES += \
-    device/sony/flamingo/rootdir/system/usr/idc/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc
+    device/sony/flamingo/rootdir/system/usr/idc/elan-touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/elan-touchscreen.idc
 
 # Device Specific Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml
 
 PRODUCT_PACKAGES += \
     keystore.msm8226
@@ -63,11 +63,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     libatomic_camera
-
-# Debug
-PRODUCT_PACKAGES += \
-    dmesgdump \
-    logdump
 
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi

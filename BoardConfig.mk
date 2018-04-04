@@ -15,21 +15,3 @@
 include device/sony/yukon/PlatformConfig.mk
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/flamingo/include
-
-TARGET_RECOVERY_FSTAB = device/sony/flamingo/rootdir/fstab.flamingo
-
-TARGET_BOOTLOADER_BOARD_NAME := D2203
-
-BOARD_KERNEL_IMAGE_NAME := zImage
-TARGET_PREBUILT_KERNEL := $(PRODUCT_OUT)/kernel
-
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1782579200
-#Reserve space for data encryption (1879030784-16384)
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1879014400
-
-BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
-
-#twrp
-TARGET_USERIMAGES_USE_F2FS := true
-TW_THEM := portrait_hdpi
-RECOVERY_SDCARD_ON_DATA := true

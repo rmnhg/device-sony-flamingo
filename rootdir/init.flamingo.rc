@@ -20,18 +20,12 @@ on init
     symlink /dev/block/platform/msm_sdcc.1 /dev/block/bootdevice
 
     # Symbols required for camera blobs
-    export LD_PRELOAD /system/lib/libatomic_camera.so
-
-    export LD_SHIM_LIBS /system/lib/hw/camera.msm8226.so|libshim_camera.so:/system/lib/libcamera_client.so|libshim_camera.so
+    export LD_PRELOAD /vendor/lib/libatomic_camera.so
 
 on fs
     mount_all ./fstab.flamingo
     swapon_all /fstab.flamingo
     write /sys/kernel/boot_adsp/boot 1
-
-    wait /dev/block/platform/msm_sdcc.1/by-name/persist
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid barrier=1
-    restorecon_recursive /persist
 
 on boot
     # WiFi MAC
@@ -53,22 +47,22 @@ on boot
 
 
 # WiFi MAC
-service wifimactool /system/bin/sh /system/etc/wifimactool.sh
+service wifimactool /system/bin/sh /vendor/etc/wifimactool.sh
     class main    
     oneshot
 
 # WCNSS service
-service wcnss_service /system/bin/wcnss_service
+service wcnss_service /vendor/bin/wcnss_service
     class late_start
     user system
     group system wifi
     oneshot
 
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
+    -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
-    -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
+    -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
     -puse_p2p_group_interface=1 \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     # We will start as root and wpa_supplicant will switch to user wifi
@@ -81,13 +75,13 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     oneshot
 
 # MAC setup
-service btnvtool /system/vendor/bin/btnvtool -I
+service btnvtool /vendor/bin/btnvtool -I
     user root
     group root
     oneshot
 
 # BT service
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+service hciattach /system/bin/sh /vendor/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth system

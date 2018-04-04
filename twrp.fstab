@@ -3,7 +3,7 @@
 /boot         emmc    /dev/block/platform/msm_sdcc.1/by-name/boot
 /recovery     emmc    /dev/block/platform/msm_sdcc.1/by-name/FOTAKernel
 /system       ext4    /dev/block/platform/msm_sdcc.1/by-name/system
-/cache        ext4    /dev/block/platform/msm_sdcc.1/by-name/cache
+/vendor       ext4    /dev/block/platform/msm_sdcc.1/by-name/cache      flags=backup=1;canbewiped;display="Vendor"
 /ta		      emmc	  /dev/block/platform/msm_sdcc.1/by-name/TA	        flags=backup=1;canbewiped;display="Trim Area"
 /data         ext4    /dev/block/platform/msm_sdcc.1/by-name/userdata
 /misc         emmc    /dev/block/platform/msm_sdcc.1/by-name/apps_log

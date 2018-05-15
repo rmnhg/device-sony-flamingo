@@ -1,4 +1,4 @@
-# Copyright 2017 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,11 @@
 
 include device/sony/yukon/PlatformConfig.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/flamingo/include
+# Device path
+DEVICE_PATH := device/sony/flamingo
+
+# Device board elements
+include $(DEVICE_PATH)/board/*.mk
+
+# Device headers 
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include

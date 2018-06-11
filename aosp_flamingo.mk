@@ -17,7 +17,7 @@ TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
 
 # Kernel config
-TARGET_KERNEL_CONFIG := arima_8926ss_ap_defconfig
+TARGET_KERNEL_CONFIG := aosp_yukon_flamingo_defconfig
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/flamingo/device.mk)

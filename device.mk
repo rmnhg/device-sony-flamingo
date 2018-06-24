@@ -22,7 +22,6 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    device/sony/flamingo/rootdir/system/etc/wifimactool.sh:$(TARGET_COPY_OUT_VENDOR)/etc/wifimactool.sh \
     device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Sensors

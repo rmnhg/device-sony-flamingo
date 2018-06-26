@@ -1,4 +1,4 @@
-# Copyright 2017 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,22 +14,12 @@
 
 include device/sony/yukon/PlatformConfig.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/flamingo/include
+# Device path
+DEVICE_PATH := device/sony/flamingo
 
-TARGET_RECOVERY_FSTAB = device/sony/flamingo/rootdir/fstab.flamingo
+# Device board elements
+include $(DEVICE_PATH)/board/*.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := D2203
+# Device headers
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
-BOARD_KERNEL_IMAGE_NAME := zImage
-TARGET_PREBUILT_KERNEL := $(PRODUCT_OUT)/kernel
-
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1782579200
-#Reserve space for data encryption (1879030784-16384)
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1879014400
-
-BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
-
-#twrp
-TARGET_USERIMAGES_USE_F2FS := true
-TW_THEM := portrait_hdpi
-RECOVERY_SDCARD_ON_DATA := true

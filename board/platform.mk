@@ -1,0 +1,6 @@
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := D2203
+
+# Vendor platform
+BOARD_VENDOR := sony
+BOARD_VENDOR_PLATFORM := yukon

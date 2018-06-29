@@ -52,10 +52,9 @@ PRODUCT_PACKAGES += \
     power.flamingo
 
 # Camera
- PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libshim_camera \
-    libboringssl-compat \
-    camera.msm8226
+    libboringssl-compat
 
 # macaddrsetup
 PRODUCT_PACKAGES += \

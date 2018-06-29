@@ -20,6 +20,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="D2203-user 4.4.4 18.5.C.0.19
 # Google Play Store identifier
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
 
+# OTA assert
+TARGET_OTA_ASSERT_DEVICE := D2202,D2203,D2206,D2212,D2243,flamingo
+
 # Override Product Name for LineageOS
 PRODUCT_NAME		:= lineage_flamingo
 PRODUCT_DEVICE		:= flamingo

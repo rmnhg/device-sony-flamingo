@@ -24,6 +24,10 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
 
+# Variant linking script
+PRODUCT_COPY_FILES += \
+    device/sony/flamingo/releasetools/firmware.sh:install/bin/firmware.sh
+
 # IDC
 PRODUCT_COPY_FILES += \
     device/sony/flamingo/rootdir/system/usr/idc/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc

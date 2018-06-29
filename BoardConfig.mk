@@ -26,6 +26,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1879014400
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=flamingo
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/sony/flamingo/releasetools
+
 #twrp
 RECOVERY_VARIANT := twrp
 TARGET_USERIMAGES_USE_F2FS := true

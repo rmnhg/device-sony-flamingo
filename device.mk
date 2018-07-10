@@ -67,6 +67,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     macaddrsetup
 
+# Compatibility with older blobs
+PRODUCT_PACKAGES += \
+    libstlport
+
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi

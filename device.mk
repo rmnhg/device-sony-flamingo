@@ -58,7 +58,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libshim_camera \
-    libboringssl-compat
+    libboringssl-compat \
+    camera.qcom
 
 # macaddrsetup
 PRODUCT_PACKAGES += \

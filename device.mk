@@ -19,7 +19,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/sony/flamingo/rootdir/system/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
-    device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
+    device/sony/flamingo/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
+    device/sony/flamingo/rootdir/system/etc/sensors/msap.conf:system/etc/msap.conf \
+    device/sony/flamingo/rootdir/system/etc/sensors/sensors_settings:system/etc/sensors_settings \
     device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab

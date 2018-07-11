@@ -63,7 +63,7 @@ if [ -s /dev/keycheck ] || busybox grep -q warmboot=0x77665502 /proc/cmdline ; t
 	busybox mknod -m 600 ${BOOTREC_FOTA_NODE}
 	busybox mount -o remount,rw /
 	busybox ln -sf /sbin/busybox /sbin/sh
-	extract_elf_ramdisk -i ${BOOTREC_FOTA} -o /sbin/ramdisk-recovery.cpio -t / -c
+	extract_elf_ramdisk -i ${BOOTREC_FOTA} -o /sbin/ramdisk-recovery.cpio -t /
 	busybox rm /sbin/sh
 
 	#Clean Android ramdisk files
@@ -89,6 +89,7 @@ fi
 
 #Rename init.real to init if necessary
 if [ -f /init.real ]; then
+    busybox rm -rf /init
     busybox mv /init.real /init
 fi
 

@@ -103,6 +103,12 @@ service macaddrsetup /vendor/bin/macaddrsetup /sys/devices/fb000000.qcom,wcnss-w
     disabled
     oneshot
 
+#start GNSS/Sensor interface daemon
+service gsiff_daemon /system/bin/gsiff_daemon
+   class late_start
+   user system
+   group gps net_raw
+
 on property:vold.post_fs_data_done=1
     # Generate Bluetooth MAC address file only when /data is ready
     start macaddrsetup

@@ -63,6 +63,11 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     libatomic_camera
 
+# WCNSS
+PRODUCT_COPY_FILES += \
+    device/sony/flamingo/rootdir/system/etc/firmware/wlan/prima/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    device/sony/flamingo/rootdir/system/vendor/etc/wifi/WCNSS_qcom_cfg.ini:system/vendor/etc/wifi/WCNSS_qcom_cfg.ini
+
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi

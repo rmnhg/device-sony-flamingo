@@ -10,6 +10,7 @@ mount -r -t ext4 /dev/block/platform/msm_sdcc.1/by-name/LTALabel /lta-label
 variant=`ls /lta-label/*.html | sed s/.*-elabel-// | sed s/-row.html// | tr -d '\n\r'`
 umount /lta-label
 
+mount -t ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system
 # Symlink the correct modem blobs
 if [ $variant == "d2202" ] || [ $variant == "d2212" ]; then
 basedir="/system/blobs/d2202/"
@@ -20,6 +21,7 @@ basedir="/system/blobs/d2203/"
 cd $basedir
 find . -type f | while read file; do ln -s $basedir$file /system/etc/firmware/$file ; done
 fi;
+umount /system
 
 exit 0
 

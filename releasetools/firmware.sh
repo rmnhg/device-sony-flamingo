@@ -21,7 +21,6 @@ basedir="/system/blobs/d2203/"
 cd $basedir
 find . -type f | while read file; do ln -s $basedir$file /system/etc/firmware/$file ; done
 fi;
-umount /system
 
 exit 0
 

@@ -1,1 +1,1 @@
-add_lunch_combo cm_flamingo-eng
+add_lunch_combo lineage_flamingo-userdebug

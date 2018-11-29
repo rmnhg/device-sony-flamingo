@@ -12,26 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Screen resoultion in Pixels.
-TARGET_SCREEN_HEIGHT := 854
-TARGET_SCREEN_WIDTH := 480
-
-# Torch
-PRODUCT_PACKAGES := \
-    Torch
-
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Common Sony Resources
-$(call inherit-product, device/sony/common/resources.mk)
-
 # Inherit from flamingo device
-$(call inherit-product, device/sony/flamingo/flamingo.mk)
+$(call inherit-product, device/sony/flamingo/full_flamingo.mk)
 
-# Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_flamingo
+# Enhanced NFC
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+
+# Inherit LOS common Phone stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
+# Build fingerprints
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=D2203
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=Sony/D2203/D2203:4.4.4/18.5.C.0.19/7H9_bQ:user/release-keys
+PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="D2203-user 4.4.4 18.5.C.0.19 7H9_bQ release-keys"
+
+PRODUCT_NAME := lineage_flamingo
 PRODUCT_DEVICE := flamingo
-PRODUCT_BRAND := Sony
-PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia E3

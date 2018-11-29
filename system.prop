@@ -2,7 +2,7 @@
 ro.semc.version.cust=1287-0517
 ro.semc.version.cust_revision=FXP
 ro.somc.customerid=666
-ro.semc.version.fs_revision=18.4.C.1.29
+ro.semc.version.fs_revision=18.5.C.0.19
 ro.semc.product.model=D2203
 ro.semc.ms_type_id=PM-0380-BV
 ro.semc.version.fs=GLOBAL-LTE

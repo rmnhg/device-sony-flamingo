@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "android_kernel_sony_flamingo",
+    "target_path": "kernel/sony/flamingo"
+  },
+  {
+    "repository": "android_device_sony_yukon",
+    "target_path": "device/sony/yukon"
+  }
+]

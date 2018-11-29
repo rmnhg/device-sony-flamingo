@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from yukon
-include device/sony/yukon/BoardConfigCommon.mk
+# Inherit from yukon
+include device/sony/yukon/PlatformConfig.mk
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := D2202,D2203,D2206,D2212,D2243,flamingo

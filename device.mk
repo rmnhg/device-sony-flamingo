@@ -23,8 +23,8 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init 2.0
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.flamingo \
-    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.flamingo.rc \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/init.sony.rc:root/init.sony.rc \
     $(LOCAL_PATH)/rootdir/init.sony.usb.rc:root/init.sony.usb.rc \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc

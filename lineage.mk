@@ -21,6 +21,10 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 # Inherit LOS common Phone stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT	:= 854
+TARGET_SCREEN_WIDTH	:= 480
+
 # Build fingerprints
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=D2203
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=Sony/D2203/D2203:4.4.4/18.5.C.0.19/7H9_bQ:user/release-keys

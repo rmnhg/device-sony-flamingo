@@ -15,11 +15,11 @@ mount -t ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system
 if [ $variant == "d2202" ] || [ $variant == "d2212" ]; then
 basedir="/system/blobs/d2202/"
 cd $basedir
-find . -type f | while read file; do ln -s $basedir$file /system/etc/firmware/$file ; done
+find . -type f | while read file; do ln -sf $basedir$file /system/etc/firmware/$file ; done
 else
 basedir="/system/blobs/d2203/"
 cd $basedir
-find . -type f | while read file; do ln -s $basedir$file /system/etc/firmware/$file ; done
+find . -type f | while read file; do ln -sf $basedir$file /system/etc/firmware/$file ; done
 fi;
 
 exit 0

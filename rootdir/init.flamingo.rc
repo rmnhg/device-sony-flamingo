@@ -95,12 +95,9 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-# OSS WLAN and BT MAC setup
-service macaddrsetup /vendor/bin/macaddrsetup /sys/devices/fb000000.qcom,wcnss-wlan/wcnss_mac_addr
-    class core
-    user system
-    group system bluetooth wifi
-    disabled
+# WLAN and BT MAC setup
+service setmacaddress /system/bin/sh /system/etc/setmacaddress.sh
+    class main    
     oneshot
 
 #start GNSS/Sensor interface daemon
@@ -108,10 +105,6 @@ service gsiff_daemon /system/bin/gsiff_daemon
    class late_start
    user system
    group gps net_raw
-
-on property:vold.post_fs_data_done=1
-    # Generate Bluetooth MAC address file only when /data is ready
-    start macaddrsetup
 
 on property:bluetooth.hciattach=true
     start hciattach

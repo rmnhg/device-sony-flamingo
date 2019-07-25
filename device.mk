@@ -24,7 +24,8 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/rootdir/system/etc/sensors/sensors_settings:system/etc/sensors_settings \
     device/sony/flamingo/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/flamingo/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab \
+    device/sony/flamingo/rootdir/system/etc/setmacaddress.sh:system/etc/setmacaddress.sh
 
 # Variant linking script
 PRODUCT_COPY_FILES += \
@@ -62,10 +63,6 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     libboringssl-compat \
     camera.qcom
-
-# macaddrsetup
-PRODUCT_PACKAGES += \
-    macaddrsetup
 
 # Compatibility with older blobs
 PRODUCT_PACKAGES += \

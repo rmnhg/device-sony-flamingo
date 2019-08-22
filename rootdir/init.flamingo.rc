@@ -89,11 +89,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-# WLAN and BT MAC setup
-service setmacaddress /system/bin/sh /system/etc/setmacaddress.sh
-    class main    
-    oneshot
-
 #start GNSS/Sensor interface daemon
 service gsiff_daemon /system/bin/gsiff_daemon
    class late_start

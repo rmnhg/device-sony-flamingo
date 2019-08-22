@@ -32,5 +32,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/sony/flamingo/releasetools
 #twrp
 RECOVERY_VARIANT := twrp
 TARGET_USERIMAGES_USE_F2FS := true
-TW_THEM := portrait_hdpi
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true

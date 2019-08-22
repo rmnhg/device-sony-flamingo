@@ -81,12 +81,6 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-# MAC setup
-service btnvtool /system/vendor/bin/btnvtool -I
-    user root
-    group root
-    oneshot
-
 # BT service
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start

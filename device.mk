@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     libboringssl-compat \
-    camera.qcom
+    camera.msm8226
 
 # Compatibility with older blobs
 PRODUCT_PACKAGES += \

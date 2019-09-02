@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab \
     device/sony/flamingo/rootdir/system/etc/setmacaddress.sh:system/etc/setmacaddress.sh
 
+# Qualcom BT
+PRODUCT_COPY_FILES += \
+    device/sony/flamingo/rootdir/system/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
+
 # Variant linking script
 PRODUCT_COPY_FILES += \
     device/sony/flamingo/releasetools/firmware.sh:install/bin/firmware.sh

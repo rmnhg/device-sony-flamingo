@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES := \
     device/sony/flamingo/twrp.fstab:recovery/root/etc/twrp.fstab \
     device/sony/flamingo/rootdir/system/etc/setmacaddress.sh:system/etc/setmacaddress.sh
 
+# Compass
+PRODUCT_COPY_FILES += \
+    device/sony/flamingo/rootdir/system/vendor/etc/pdc.txt:system/vendor/etc/pdc.txt
+
 # Qualcom BT
 PRODUCT_COPY_FILES += \
     device/sony/flamingo/rootdir/system/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
